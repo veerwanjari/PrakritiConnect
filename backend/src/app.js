@@ -41,6 +41,9 @@ app.use('/api', rateLimit({ windowMs: 60 * 1000, max: 120 }));
 
 // API Routes
 app.get('/api/health', (req, res) => res.json({ status: 'ok', app: 'PrakritiConnect API' }));
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', app: 'PrakritiConnect API' });
+});
 app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/registrations', registrationRoutes);
