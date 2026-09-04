@@ -1,0 +1,14 @@
+{
+  "name": "PrakritiConnect",
+  "short_name": "PrakritiConnect",
+  "description": "Green event management for volunteers, organizers, and admins.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f8ef",
+  "theme_color": "#386428",
+  "icons": [
+    { "src": "/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/logo-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/logo.png", "sizes": "310x310", "type": "image/png" }
+  ]
+}
