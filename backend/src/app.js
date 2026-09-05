@@ -40,8 +40,22 @@ app.use(compression());
 app.use('/api', rateLimit({ windowMs: 60 * 1000, max: 120 }));
 
 // API Routes
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', app: 'PrakritiConnect API' });
+app.get('/api/health', async (req, res) => {
+  const mongoose = (await import('mongoose')).default;
+  let eventCount = null;
+  try {
+    eventCount = await mongoose.connection.db.collection('events').countDocuments();
+  } catch (e) {
+    eventCount = `error: ${e.message}`;
+  }
+  res.json({
+    status: 'ok',
+    app: 'PrakritiConnect API',
+    dbName: mongoose.connection.db?.databaseName,
+    dbHost: mongoose.connection.host,
+    readyState: mongoose.connection.readyState,
+    eventCount,
+  });
 });
 app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
