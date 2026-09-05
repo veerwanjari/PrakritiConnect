@@ -42,19 +42,17 @@ app.use('/api', rateLimit({ windowMs: 60 * 1000, max: 120 }));
 // API Routes
 app.get('/api/health', async (req, res) => {
   const mongoose = (await import('mongoose')).default;
-  let eventCount = null;
+  let collections = null;
   try {
-    eventCount = await mongoose.connection.db.collection('events').countDocuments();
+    collections = (await mongoose.connection.db.listCollections().toArray()).map((c) => c.name);
   } catch (e) {
-    eventCount = `error: ${e.message}`;
+    collections = `error: ${e.message}`;
   }
   res.json({
     status: 'ok',
-    app: 'PrakritiConnect API',
     dbName: mongoose.connection.db?.databaseName,
     dbHost: mongoose.connection.host,
-    readyState: mongoose.connection.readyState,
-    eventCount,
+    collections,
   });
 });
 app.use('/api/auth', authRoutes);
