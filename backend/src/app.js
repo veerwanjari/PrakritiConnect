@@ -41,12 +41,7 @@ app.use('/api', rateLimit({ windowMs: 60 * 1000, max: 120 }));
 
 // API Routes
 app.get('/api/health', (req, res) => {
-  res.json({
-    status: 'ok',
-    app: 'PrakritiConnect API',
-    mongoUriSet: Boolean(process.env.MONGO_URI),
-    jwtSecretSet: Boolean(process.env.JWT_SECRET),
-  });
+  res.json({ status: 'ok', app: 'PrakritiConnect API' });
 });
 app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
