@@ -40,15 +40,8 @@ app.use(compression());
 app.use('/api', rateLimit({ windowMs: 60 * 1000, max: 120 }));
 
 // API Routes
-app.get('/api/health', async (req, res) => {
-  const mongoose = (await import('mongoose')).default;
-  let sample = null;
-  try {
-    sample = await mongoose.connection.db.collection('events').find({}).limit(3).toArray();
-  } catch (e) {
-    sample = `error: ${e.message}`;
-  }
-  res.json({ status: 'ok', sample });
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', app: 'PrakritiConnect API' });
 });
 app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
