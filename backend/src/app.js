@@ -42,18 +42,13 @@ app.use('/api', rateLimit({ windowMs: 60 * 1000, max: 120 }));
 // API Routes
 app.get('/api/health', async (req, res) => {
   const mongoose = (await import('mongoose')).default;
-  let collections = null;
+  let sample = null;
   try {
-    collections = (await mongoose.connection.db.listCollections().toArray()).map((c) => c.name);
+    sample = await mongoose.connection.db.collection('events').find({}).limit(3).toArray();
   } catch (e) {
-    collections = `error: ${e.message}`;
+    sample = `error: ${e.message}`;
   }
-  res.json({
-    status: 'ok',
-    dbName: mongoose.connection.db?.databaseName,
-    dbHost: mongoose.connection.host,
-    collections,
-  });
+  res.json({ status: 'ok', sample });
 });
 app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
