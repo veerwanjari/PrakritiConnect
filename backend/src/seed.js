@@ -47,7 +47,7 @@ async function run() {
       capacity: 100,
       organizer: organizer._id,
       status: 'approved',
-      posterUrl: '',
+      posterUrl: 'https://prakriti-connect-836n.vercel.app/tree-plantation.jpg',
       tags: ['beginner-friendly', 'outdoors', 'weekend'],
     },
     {
@@ -59,7 +59,7 @@ async function run() {
       capacity: 150,
       organizer: organizer._id,
       status: 'approved',
-      posterUrl: '',
+      posterUrl: 'https://prakriti-connect-836n.vercel.app/beach-cleanup',
       tags: ['early-morning', 'family-friendly'],
     },
     {
@@ -71,7 +71,7 @@ async function run() {
       capacity: 60,
       organizer: organizer._id,
       status: 'pending',
-      posterUrl: '',
+      posterUrl: 'https://prakriti-connect-836n.vercel.app/composting-workshop',
       tags: ['indoor', 'hands-on'],
     },
     {
@@ -83,7 +83,7 @@ async function run() {
       capacity: 200,
       organizer: organizer._id,
       status: 'approved',
-      posterUrl: '',
+      posterUrl: 'https://prakriti-connect-836n.vercel.app/wildlife-rally',
       tags: ['awareness', 'family-friendly'],
     },
     {
@@ -95,7 +95,7 @@ async function run() {
       capacity: 80,
       organizer: organizer._id,
       status: 'approved',
-      posterUrl: '',
+      posterUrl: 'https://prakriti-connect-836n.vercel.app/lake-restoration.jpg',
       tags: ['physical-activity', 'weekend'],
     },
     {
@@ -107,7 +107,7 @@ async function run() {
       capacity: 40,
       organizer: organizer._id,
       status: 'approved',
-      posterUrl: '',
+      posterUrl: 'https://prakriti-connect-836n.vercel.app/community-garden',
       tags: ['gardening', 'kids-welcome'],
     },
   ]);
